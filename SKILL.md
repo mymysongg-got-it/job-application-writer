@@ -1,358 +1,550 @@
 ---
 name: job-application-writer
-description: "한국 기업 입사지원서 작성(자기소개서/자소서)이 필요할 때 사용하는 스킬. 트리거: 자기소개서, 자소서 작성·검토·개선 요청, 한국 기업(특히 삼성, 현대, LG, SK, NH투자증권, 미래에셋 등 대기업) 지원서 관련 질문, 이력서 첨삭, 경험을 설득력 있는 지원서로 변환하는 작업. 한국 지원서 특정 문항(예: 지원동기, 성장과정, 입사 후 포부, 직무 적합성) 언급하거나 지원서 양식을 업로드할 때도 트리거. 사용자가 단순히 경력을 공유하며 '자소서 좀 써줘'라고 말해도 이 스킬을 사용할 것."
+description: "Use this skill when users need help writing Korean job application materials (자기소개서/자소서). Triggers: any request to write, review, or improve 자기소개서, 자소서, cover letters for Korean companies (especially major corporations like Samsung, Hyundai, LG, SK, NH투자증권, 미래에셋 등), resume critiques for Korean job applications, or converting experiences into compelling application narratives. Also trigger when users mention specific Korean application questions (예: 지원동기, 성장과정, 입사 후 포부, 직무 적합성) or upload application forms. Use this skill even if the user just shares their background and says '자소서 좀 써줘'."
 ---
 
-# 자기소개서 작성 스킬 (Job Application Writer)
+# Job Application Writer (Korean)
 
-한국 기업의 인사 담당자와 채용 매니저의 마음을 사로잡는 고품질 자기소개서를 작성하는 종합 스킬입니다.
+A comprehensive skill for writing high-quality Korean job applications (자기소개서) that pass HR screening and resonate with hiring managers at Korean companies.
 
-## 핵심 원칙
+## Core Principles
 
-### 1. 리서치 먼저, 작성은 나중에
+### 1. Research First, Write Second
 
-**직무를 이해하지 않고 절대 작성하지 마세요.**
+**NEVER write without understanding the job.**
 
-가장 큰 실수: 직무명만 보고 무슨 일을 하는지 안다고 가정하기
-- "마케팅"은 다음 중 무엇일까요: 퍼포먼스 마케팅, 브랜드 전략, 그로스 해킹, 콘텐츠 크리에이션, 프로덕트 마케팅
-- "IB"는 다음 중 무엇일까요: ECM/DCM, M&A, 부동산인프라, 구조화금융, coverage
-- "생산관리"는 다음 중 무엇일까요: 생산계획, 품질관리, 공정개선, 설비관리
+The #1 mistake: assuming you know what a role does based on its title.
+- "마케팅" could mean: performance marketing, brand strategy, growth hacking, content creation, or product marketing
+- "IB" could mean: ECM/DCM, M&A, 부동산인프라, 구조화금융, or coverage
+- "생산관리" could mean: 생산계획, 품질관리, 공정개선, or 설비관리
 
-**항상 웹 검색을 사용해서 다음을 파악하세요**:
-1. 이 직무가 실제로 무엇을 하는가 (일상 업무, 산출물)
-2. 어떤 스킬이 필요한가 (도구, 지식, 성격)
-3. 이 회사의 차별점은 무엇인가 (최근 프로젝트, 시장 포지션)
+**Always use web search to learn**:
+1. What this job actually does (daily tasks, deliverables)
+2. What skills are required (tools, knowledge, personality)
+3. What makes this company different (recent projects, market position)
 
-**10분의 리서치 = 2배 더 좋은 자소서.**
+**10 minutes of research = 2x better essay.**
 
-### 2. 경험과 요구사항 매칭하기
+### 2. Match Experiences to Requirements
 
-작성 전에 매칭 매트릭스를 만드세요:
-| 사용자 경험 | 직무 요구사항 A | 직무 요구사항 B | 전체 적합도 |
-|-----------|---------------|---------------|------------|
-| 경험 1 | ⭐⭐⭐⭐⭐ 강함 | ⭐⭐ 약함 | 높음 |
-| 경험 2 | ⭐⭐ 약함 | ⭐⭐⭐⭐⭐ 강함 | 높음 |
+Create a fit matrix BEFORE writing:
+| User's Experience | Job Requirement A | Job Requirement B | Overall Fit |
+|-------------------|-------------------|-------------------|-------------|
+| Experience 1 | ⭐⭐⭐⭐⭐ Strong | ⭐⭐ Weak | High |
+| Experience 2 | ⭐⭐ Weak | ⭐⭐⭐⭐⭐ Strong | High |
 
-**목적:**
-- 어떤 경험을 강조할지 파악
-- 빈틈 찾기 (재구성하거나 예시 추가 필요)
-- 억지 연결 피하기
+**Purpose:**
+- Identify which experiences to emphasize
+- Find gaps (may need to reframe or add examples)
+- Avoid forcing weak connections
 
-**레드 플래그**: 모든 매칭이 ⭐⭐ 이하 → 직무가 잘못되었거나 다른 프레이밍 필요
+**Red flag**: If all matches are ⭐⭐ or below → wrong job or need different framing
 
-### 3. 뻔한 기업 언어 피하기
+### 3. Avoid Generic Corporate Language
 
-한국 자소서는 상투적인 패턴에 빠지기 쉽습니다:
+Korean job applications fall into clichéd patterns:
 - ❌ "~하는 인재가 되고 싶습니다"
-- ❌ "글로벌 리더", "도전정신", "열정" (구체적 예시 없이)
+- ❌ "글로벌 리더", "도전정신", "열정" (without concrete examples)
 - ❌ "회사 발전에 기여하고 싶습니다"
 
-**테스트**: 다른 지원자 100명도 같은 문장을 쓸 수 있다면 → 다시 쓰세요
+**Test**: If 100 other applicants could write the same sentence → rewrite
 
-**대신에**:
-- ✅ 구체적 성과: "1,800권 완판", "우수상 수상", "오류율 30% 감소"
-- ✅ 구체적 행동: "매트랩으로 500번 시뮬레이션", "거래처와 선도계약 체결"
-- ✅ 직무별 목표: "병목 구간 분석", "발행가액 계산", "A/B 테스트 설계"
+**Instead**:
+- ✅ Specific outcomes: "1,800권 완판", "우수상 수상", "오류율 30% 감소"
+- ✅ Concrete actions: "매트랩으로 500번 시뮬레이션", "거래처와 선도계약 체결"
+- ✅ Role-specific goals: "병목 구간 분석", "발행가액 계산", "A/B 테스트 설계"
 
-### 4. 임팩트 있는 구조
+### 4. Structure for Impact
 
-**시작 (첫 문장)**:
-- ✅ 구체적 순간: "2010년 11월 23일, 연평도에서..."
-- ✅ 놀라운 통찰: "1,800권 발주 시뮬레이션을 돌렸을 때..."
-- ❌ 뻔한 서론: "저는 ~한 사람입니다", "어릴 적부터..."
+**Opening (첫 문장)**:
+- ✅ Concrete moment: "2010년 11월 23일, 연평도에서..."
+- ✅ Surprising insight: "1,800권 발주 시뮬레이션을 돌렸을 때..."
+- ❌ Generic intro: "저는 ~한 사람입니다", "어릴 적부터..."
 
-**본문**:
-- 성과부터 쓰고, 그다음 방법 설명
-- 가능한 한 숫자 사용
-- 각 포인트를 직무 요구사항과 연결
+**Body**:
+- Lead with outcome, then explain how
+- Use numbers whenever possible
+- Connect each point back to job requirements
 
-**마무리**:
-- 적합성을 간결하게 재진술
-- 구체적 기여 (막연한 "성장" 아님)
+**Closing**:
+- Restate fit concisely
+- Specific contribution (not vague "성장")
 
-### 5. 문항 간 중복 금지
+### 5. No Redundancy Across Questions
 
-**다중 문항 지원서의 경우:**
+**For multi-question applications:**
 
-각 문항에는 목적이 있습니다. 예시:
-- **Q1 (지원 동기)**: 왜 이 회사 + 이 직무인가
-- **Q2 (성장 과정)**: 당신을 만든 경험들
-- **Q3 (사회 이슈)**: 당신의 관점 + 직무와의 연결
-- **Q4 (직무 적합성)**: 당신이 이 일을 할 수 있다는 구체적 증거
+Each question has a purpose:
+- **Q1 (지원 동기)**: Why THIS company + THIS role
+- **Q2 (성장 과정)**: Formative experiences that shaped you
+- **Q3 (사회 이슈)**: Your perspective + connection to role
+- **Q4 (직무 적합성)**: Concrete proof you can do the job
 
-**원칙**: 각 경험은 하나의 주 무대를 가집니다
-- 특정 주제1이 Q2에서 완전히 설명되었다면 → Q4에서는 간단히 언급만 (또는 생략)
-- 특정 주제2가 Q4의 메인 스토리라면 → Q1/Q2에서 전체 스토리 반복 안 함
+**Rule**: Each experience gets ONE primary home
+- If 드론 연구 is fully described in Q2 → only brief mention in Q4 (or skip entirely)
+- If 게장집 is main story in Q4 → don't repeat full story in Q1/Q2
 
-**자유형식 단일 에세이의 경우:**
-- 여전히 내부 구조 만들기 (두서없이 쓰지 않기)
-- 관련 경험을 2-3개 역량 클러스터로 그룹화
-- 각 경험은 한 번만, 가장 관련 있는 클러스터에서 사용
+**For single essay (자유형식):**
+- Still create internal structure (don't ramble)
+- Group related experiences into 2-3 competency clusters
+- Each experience used once, in the most relevant cluster
 
-## 워크플로우
+## Writing Style & Tone
 
-### 1단계: 맥락 수집
+### Natural Korean Flow
 
-사용자에게 질문:
-1. **타겟**: 회사명 + 구체적 직무/부서
-2. **형식**: 다중 문항? 단일 에세이? 글자 수 제한?
-3. **자료**: 이력서/성적표 있나요? 주요 경험은?
+**Avoid English-style subject overuse:**
+- ❌ "저는 CPA를 준비했습니다. 저는 재무회계를 공부했고, 저는 원가관리회계도 배웠습니다."
+- ✅ "CPA 시험을 준비하며 재무회계와 원가관리회계를 공부했습니다."
 
-사용자가 문서를 제공하면 → 먼저 파싱해서 3-5개 가장 강력한 경험 파악
+**When to use "저는" (sparingly):**
+- Opening sentence of essay (once): "저는 대학에서..."
+- Contrast needed: "다른 팀원들은 코딩에 강했고, 저는 일정 관리를 맡았습니다"
+- Emphasizing personal action: "팀 프로젝트였지만 저는 데이터 분석을 담당했습니다"
 
-### 2단계: 직무 리서치
+**When to omit "저는" (default):**
+- Consecutive sentences about yourself (most common)
+- After context established
+- When describing experiences/skills/projects
 
-**웹 검색을 사용해서 직무를 이해하세요.**
+### Humble, Not Overconfident
 
-리서치 질문:
-1. **이 직무가 실제로 무엇을 하나요?**
-   - 검색: "[회사명] [직무명] 하는 일", "[직무명] 현직자", "[직무명] 업무 소개"
-   - 추출: 3-5개 핵심 일상 업무
+**Avoid absolutist declarations:**
+- ❌ "이것이 핵심입니다" / "가장 중요합니다" - Sounds preachy
+- ❌ "반드시 ~해야 합니다" - Too directive
+- ❌ "~는 필수입니다" - Textbook tone
+- ❌ "저는 ~할 수 있습니다" (repeated 10+ times) - Arrogant
+
+**Prefer showing over telling:**
+- ✅ Show evidence, let reader judge: "이 경험은 ~에 활용될 수 있습니다"
+- ✅ Express as learning: "~이 중요하다는 것을 배웠습니다"
+- ✅ State contribution: "~에 기여할 수 있습니다" (once or twice, not every paragraph)
+- ✅ Frame as opinion when appropriate: "~라고 생각합니다" (but limit to 2-3 times per essay)
+
+**Example - Overconfident:**
+> 재무 분석 역량이 핵심입니다. 저는 이를 완벽히 갖추고 있습니다. 저는 반드시 기여할 수 있습니다.
+
+**Example - Humble:**
+> 재무 분석 역량을 키웠습니다. 이 경험이 프로젝트 평가에 활용될 수 있습니다.
+
+### Concrete Over Abstract
+
+**Avoid vague claims:**
+- ❌ "저는 데이터 분석에 강합니다"
+- ❌ "~에 열정이 있습니다"
+- ❌ "빠르게 성장하고 싶습니다"
+
+**Provide specifics:**
+- ✅ "드론 연구에서 수백 번의 시뮬레이션을 수행하며 변수를 조정했습니다"
+- ✅ "CPA 시험을 준비하며 재무제표 분석 방법을 학습했습니다"
+- ✅ "재무 모델링과 사업성 검토 업무를 익히고 싶습니다"
+
+### Moderate "~생각합니다" Usage
+
+**Problem with overuse:**
+Using "~라고 생각합니다" 7+ times makes you sound uncertain or wishy-washy.
+
+**Strategic usage (2-3 times per 3000자):**
+- When expressing genuine opinion on industry/role
+- When connecting experience to job (shows reasoning)
+- When stating career goals
+
+**Alternatives to reduce repetition:**
+- "~할 수 있습니다" → "~에 활용될 수 있습니다"
+- "~가 중요하다고 생각합니다" → "~의 중요성을 배웠습니다"
+- "~에 기여할 수 있다고 생각합니다" → "~에 기여하겠습니다"
+
+**Example - Overuse:**
+> 이것이 중요하다고 생각합니다. 저는 기여할 수 있다고 생각합니다. 이 역량이 필요하다고 생각합니다. 성장하고 싶다고 생각합니다.
+
+**Example - Strategic use:**
+> 이 경험이 민감도 분석에 활용될 수 있습니다. [later] PF에서는 리스크 관리가 핵심이라고 생각합니다. [final] 프로젝트 평가에 기여하겠습니다.
+
+### Section Headings (Optional, Format-Dependent)
+
+**When to use headings:**
+- If examples show headings in job posting
+- When essay is 2500+ characters and covers 4+ distinct competencies
+- When writing style allows formatting (some companies prefer pure prose)
+
+**Heading format consistency:**
+```
+✅ Consistent pattern:
+[영역: 핵심 내용]
+[게장집 운영: 이론을 실무에 적용하고 소통으로 성과 창출]
+[CPA 준비: 재무·회계 기초 역량 확보]
+[드론 연구: 데이터 기반 의사결정]
+
+❌ Inconsistent:
+[연평도 게장집에서 이론을 실무에 적용하고 소통으로 성과를 만든 경험]
+[CPA 준비를 통한 재무·회계 기초 역량 확보]
+[데이터 기반 의사결정 경험]
+```
+
+**When NOT to use headings:**
+- If job posting examples show pure prose
+- For essays under 2000 characters
+- When company culture is conservative/traditional
+
+## Workflow
+
+### Step 1: Gather Context
+
+Ask user:
+1. **Target**: Company name + specific role/department
+2. **Format**: Multiple questions? Single essay? Character limits?
+3. **Materials**: Resume/transcript available? Key experiences?
+
+If user provides documents → parse first, identify 3-5 strongest experiences
+
+### Step 2: Research the Job
+
+**Use web search to understand the role.**
+
+Research questions:
+1. **What does this job DO?**
+   - Search: "[회사명] [직무명] 하는 일", "[직무명] 현직자", "[직무명] 업무 소개"
+   - Extract: 3-5 core daily responsibilities
    
-2. **어떤 스킬이 중요한가요?**
-   - 채용 공고에서 우대역량, 필요역량 확인
-   - 검색: "[직무명] 필수 역량", "[직무명] 자격요건"
-   - 분류: 기술적 (도구) / 도메인 (지식) / 소프트 (대인관계)
+2. **What skills matter?**
+   - Check job posting for 우대역량, 필요역량
+   - Search: "[직무명] 필수 역량", "[직무명] 자격요건"
+   - Categorize: Technical (tools) / Domain (knowledge) / Soft (people skills)
 
-3. **회사별 특수 맥락은?**
-   - 검색: "[회사명] [관련 키워드] 실적/순위/프로젝트"
-   - 찾기: 1-2개 구체적 사실 (최근 딜, 시장 포지션, 혁신)
-   - 피하기: 뻔한 진술 ("글로벌 1위", "세계 최고")
+3. **Company-specific context?**
+   - Search: "[회사명] [relevant keyword] 실적/순위/프로젝트"
+   - Find: 1-2 concrete facts (recent deals, market position, innovations)
+   - Avoid: Generic statements ("글로벌 1위", "세계 최고")
 
-4. **이 직무는 어떤 문제를 해결하나요?**
-   - 제조업 → 비용, 품질, 효율성
-   - 금융 → 리스크, 밸류에이션, 실행
-   - 마케팅 → 성장, 전환, 유지
-   - 문제를 이해하는 것 = 직무를 이해하는 것
+4. **What problem does this job solve?**
+   - Manufacturing → cost, quality, efficiency
+   - Finance → risk, valuation, execution
+   - Marketing → growth, conversion, retention
+   - Understanding the problem = understanding the role
 
-**예시 출력:**
+**Example output:**
 ```
-직무: 증권사 IB (ECM/DCM)
-일상 업무: 제안서 작성, 증권신고서 작성, 재무분석, 발행가액 계산
-필요 스킬: 재무회계, MS Office, 재무모델링, 문서작성, 커뮤니케이션
-회사 강점: [구체적 딜명, 시장 순위]
-핵심 문제: 기업이 적절한 시기/가격에 자금을 조달하도록 돕기
+Role: 증권사 IB (ECM/DCM)
+Daily work: 제안서 작성, 증권신고서 작성, 재무분석, 발행가액 계산
+Required skills: 재무회계, MS Office, 재무모델링, 문서작성, 커뮤니케이션
+Company strengths: [specific deal names, market ranking]
+Core problem: Help companies raise capital at right time/price
 ```
 
-**왜 이것이 중요한가:**
-- 리서치 없이: "저는 데이터 분석을 잘합니다" (막연함, 뻔함)
-- 리서치 후: "ECM 유상증자 시 발행가액 계산이 핵심입니다. 저는 드론 연구에서 변수를 조정하며 최적값을 도출한 경험이 있어, 발행 조건별 기업가치 시뮬레이션 작업을 수행할 수 있습니다" (구체적, 연결됨)
+**Why this matters:**
+- Without research: "저는 데이터 분석을 잘합니다" (vague, generic)
+- With research: "ECM 유상증자 시 발행가액 계산이 핵심입니다. 저는 드론 연구에서 변수를 조정하며 최적값을 도출한 경험이 있어, 발행 조건별 기업가치 시뮬레이션 작업을 수행할 수 있습니다" (specific, connected)
 
-### 3단계: 경험-직무 매트릭스 만들기
+### Step 3: Build Experience-to-Job Matrix
 
-사용자의 경험을 직무 요구사항에 매핑:
+Map user's experiences to job requirements:
 
-| 사용자 경험 | 직무 요구 1 | 직무 요구 2 | 직무 요구 3 | 우선순위 |
-|-----------|-----------|-----------|-----------|---------|
-| 주요 프로젝트 A | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | 높음 |
-| 수업 B | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | 높음 |
-| 부수 활동 C | ⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ | 중간 |
+| User Experience | Job Req 1 | Job Req 2 | Job Req 3 | Priority |
+|-----------------|-----------|-----------|-----------|----------|
+| Major project A | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ | High |
+| Coursework B | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | High |
+| Side activity C | ⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ | Medium |
 
-**이것을 사용해서:**
-- 어떤 경험을 부각시킬지 결정 (높은 우선순위 먼저)
-- 각 경험을 어떻게 프레이밍할지 파악 (강한 매칭 강조)
-- 빈틈 발견 (추가 예시나 창의적 재구성 필요)
+**Use this to:**
+- Decide which experiences to feature (High priority first)
+- Identify how to frame each experience (emphasize strong matches)
+- Spot gaps (may need additional examples or creative reframing)
 
-### 4단계: 경험을 문항에 배정
+### Step 4: Assign Experiences to Questions
 
-**구조화된 지원서 (Q1-Q4)의 경우:**
+**For structured applications (Q1-Q4):**
 
-| 경험 | Q1 동기 | Q2 성장 | Q3 이슈 | Q4 적합성 |
-|-----|--------|--------|--------|----------|
-| 프로젝트 A | - | ✓ 주요 | - | ✓ 언급 |
-| 경험 B | ✓ 언급 | ✓ 주요 | - | ✓ 주요 |
-| 수업 C | - | - | ✓ 주요 | ✓ 언급 |
+| Experience | Q1 동기 | Q2 성장 | Q3 이슈 | Q4 적합성 |
+|-----------|---------|---------|---------|-----------|
+| Project A | - | ✓ 주요 | - | ✓ 언급 |
+| Experience B | ✓ 언급 | ✓ 주요 | - | ✓ 주요 |
+| Coursework C | - | - | ✓ 주요 | ✓ 언급 |
 
-**규칙:**
-- 각 경험은 하나의 "주요" 배치 (전체 상세 설명)
-- 여러 "언급" 가능 (간단한 참조, 다른 각도)
-- 경험당 총 내용량 = ~1개 주요 작성 + 0-2개 언급
+**Rules:**
+- Each experience gets ONE "주요" placement (full detail)
+- Can get multiple "언급" (brief reference, different angle)
+- Total content per experience = ~1 main write-up + 0-2 mentions
 
-**자유형식 에세이 (3000자)의 경우:**
+**For free-form essay (3000자):**
 
-3부 구조 설계:
-1. **훅** (400-600자): 가장 설득력 있는/관련성 높은 경험으로 관심 끌기
-2. **역량 증명** (1,500-1,800자): 2-3개 스킬 클러스터, 각각 지원 경험 포함
-3. **회사 적합성** (400-600자): 왜 이 특정 회사인가 + 구체적 목표
+Design 3-part structure:
+1. **Hook** (400-600자): Most compelling/relevant experience that grabs attention
+2. **Competency proof** (1,500-1,800자): 2-3 skill clusters, each with supporting experiences
+3. **Company fit** (400-600자): Why this specific company + concrete goals
 
-경험을 클러스터에 매핑:
-- 클러스터 1 (예: 기술 분석): 경험 A + 수업 B
-- 클러스터 2 (예: 실행력): 경험 C + 경험 D
-- 클러스터 3 (예: 도메인 지식): 경험 B + 수업 E
+Map experiences to clusters:
+- Cluster 1 (e.g., Technical Analysis): Experience A + Coursework B
+- Cluster 2 (e.g., Execution): Experience C + Experience D
+- Cluster 3 (e.g., Domain Knowledge): Experience B + Coursework E
 
-### 5단계: 작성 및 검토
+### Step 5: Write and Review
 
-**아래 템플릿을 따라 각 섹션 작성.**
+**Write each section following templates below.**
 
-**검토 체크리스트:**
-- [ ] 진부한 표현 없음 (금지 문구 목록 확인)
-- [ ] 모든 주요 주장에 숫자/구체성
-- [ ] 각 경험을 전략적으로 사용 (반복 안 함)
-- [ ] 명확한 연결: 경험 → 직무 요구사항
-- [ ] 자연스러운 한국어 (번역투 아님)
-- [ ] 회사별 구체적 사실 (뻔한 칭찬 아님)
+**Review checklist:**
 
-## 문항 유형별 템플릿
+**Content quality:**
+- [ ] No clichés (인재, 열정, 도전정신, 글로벌 리더)
+- [ ] Numbers/specifics in every major claim
+- [ ] Each experience used strategically (not repeated)
+- [ ] Clear connection: experience → job requirement
+- [ ] Company-specific facts (not generic praise)
+
+**Korean language & style:**
+- [ ] "저는" used sparingly (3-5 times max per 3000자)
+- [ ] Subject omitted where natural (most sentences)
+- [ ] "~라고 생각합니다" limited (2-3 times total)
+- [ ] No overconfident absolutes ("핵심입니다", "반드시", "필수")
+- [ ] Natural Korean flow (not English translation style)
+
+**Tone:**
+- [ ] Humble confidence (shows evidence, lets reader judge)
+- [ ] Learning-focused (not just achievement list)
+- [ ] Specific contributions (not vague "성장하고 싶습니다")
+- [ ] Appropriate formality (not too casual, not too stiff)
+
+**Structure & formatting (if using headings):**
+- [ ] Heading style consistent ([영역: 내용] format)
+- [ ] Appropriate for company culture
+- [ ] Transitions smooth between sections
+
+**Technical:**
+- [ ] No typos (especially company/role names)
+- [ ] Character count within limit (±50자)
+- [ ] Logical flow (시제 일치, 주어-술어 호응)
+
+## Question-Type Templates
 
 ### Q1: 지원 동기 + 입사 후 목표
 
-**구조 (700자)**:
-1. 개인적 계기 (150-200자)
-   - 이 분야/산업에 관심 갖게 된 계기
-   - 피하기: "어릴 적 꿈", 가업 (예외적인 경우 제외)
-2. 왜 이 회사인가 (250-300자)
-   - 구체적 리서치 결과 (딜, 프로젝트, 문화)
-   - 당신의 가치관/경험과의 연결
-   - 안 됨: "글로벌 1위", "세계 최고 수준"
-3. 왜 이 직무인가 (100-150자)
-   - 당신의 스킬과 직무 니즈 간의 적합성
-4. 기여 방안 (100자)
-   - 구체적으로, "성장하고 싶습니다" 안 됨
+**Structure (700자)**:
+1. Personal trigger (150-200자)
+   - What led you to this field/industry
+   - Avoid: "어릴 적 꿈", family business (unless exceptional)
+2. Why THIS company (250-300자)
+   - Specific research findings (deals, projects, culture)
+   - Connection to your values/experience
+   - NOT: "글로벌 1위", "세계 최고 수준"
+3. Why THIS role (100-150자)
+   - Fit between your skills and role needs
+4. Contribution (100자)
+   - Specific, not "성장하고 싶습니다"
 
-**좋은 예시:**
+**Good example:**
 > 국제에너지시장분석 수업에서 기업 자금조달의 중요성을 알게 되었습니다. NH투자증권은 ECM/DCM에서 한화에어로스페이스 유상증자 등 대형 딜을 주관하며 업계 상위권을 유지하고 있습니다. 저는 CPA 준비를 통해 재무분석 기반을 갖췄으며, 입사 후 제안서 작성 역량을 키워 딜 실행에 기여하고 싶습니다.
 
-**나쁜 예시:**
+**Bad example:**
 > 어릴 적부터 금융에 관심이 많았습니다. NH투자증권은 글로벌 1위 증권사로서 세계 최고 수준의 IB 역량을 보유하고 있습니다. 저는 열정과 도전정신으로 회사 발전에 기여하고 싶습니다.
 
 ### Q2: 성장 과정
 
-**구조 (1500자)**:
-- 훅: 결정적 순간 (100-150자)
-- 설정: 맥락/상황 (150-200자)
-- 도전: 직면한 장애물 (300-400자)
-- 행동: 당신이 한 일 (400-500자)
-- 성장: 어떻게 변했는가 (300-400자)
-- 현재: 현재 상태 (100자)
+**Structure (1500자)**:
+- Hook: Defining moment (100-150자)
+- Setup: Context/situation (150-200자)
+- Challenge: Obstacle faced (300-400자)
+- Action: What you did (400-500자)
+- Growth: How you changed (300-400자)
+- Now: Current state (100자)
 
-**스토리텔링 규칙:**
-- 3막 구조 사용 (상황 → 갈등 → 해결)
-- 변화 보여주기 (이전 → 이후)
-- 핵심 순간에 감각적 디테일 포함
-- "현재의 저는..."으로 직무와 연결하며 마무리
+**Storytelling rules:**
+- Use 3-act structure (situation → conflict → resolution)
+- Show transformation (before → after)
+- Include sensory details for key moments
+- End with "현재의 저는..." connecting to job
 
-**피하기:**
-- 연대기식 이력서 ("1학년 때... 2학년 때...")
-- 갈등 없이 성과만 나열
-- 막연한 교훈 ("협업의 중요성")
+**Avoid:**
+- Chronological resume ("1학년 때... 2학년 때...")
+- Listing achievements without conflict
+- Vague lessons ("협업의 중요성")
 
 ### Q3: 사회 이슈
 
-**구조 (1000자)**:
-1. 이슈 (150-200자): 구체적, 시의성, 관련성
-2. 개인적 연결 (300-350자): 왜 당신이 관심 있는가 (수업, 경험, 관찰)
-3. 분석 (350-400자): 당신의 관점 (일방적이지 않게)
-4. 직무 연결 (150-200자): 이것이 타겟 직무에 미치는 영향
+**Structure (1000자)**:
+1. Issue (150-200자): Specific, current, relevant
+2. Personal connection (300-350자): Why YOU care (coursework, experience, observation)
+3. Analysis (350-400자): Your perspective (not one-sided)
+4. Job link (150-200자): How this affects target role
 
-**주제 선택:**
-- ✅ 전공/경험과 연결됨
-- ✅ 타겟 산업과 관련
-- ✅ 깊이 있는 사고 보여줌
-- ❌ 뻔함 (AI, 환경, 고령화만 단독으로)
-- ❌ 정치적으로 논란 많은 것
+**Topic selection:**
+- ✅ Connects to your major/experience
+- ✅ Relevant to target industry
+- ✅ Shows depth of thinking
+- ❌ Generic (AI, 환경, 고령화 alone)
+- ❌ Politically controversial
 
 ### Q4: 직무 적합성
 
-**구조 (1000자)**:
-- 서론: 2-3개 핵심 역량 (50자)
-- 증명 1: 기술적/분석적 (350-400자)
-- 증명 2: 도메인 지식 (300-350자)
-- 증명 3: 실행력/소프트 스킬 (300자)
+**Structure (1000자)**:
+- Intro: 2-3 key competencies (50자)
+- Proof 1: Technical/analytical (350-400자)
+- Proof 2: Domain knowledge (300-350자)
+- Proof 3: Execution/soft skills (300자)
 
-**증명 위계:**
-1. 정량화된 성과: "1,800권 완판", "오류율 30% 감소"
-2. 인정: "우수상", "학회 발표"
-3. 수업: "수치해석 A+ 이수"
-4. 피하기: "~할 수 있습니다"만 단독으로
+**Proof hierarchy:**
+1. Quantified outcome: "1,800권 완판", "오류율 30% 감소"
+2. Recognition: "우수상", "학회 발표"
+3. Coursework: "수치해석 A+ 이수"
+4. Avoid: "~할 수 있습니다" alone
 
-### 자유형식 (3000자 단일 에세이)
+### 자유형식 (3000자 single essay)
 
-**흔한 경우**: 금융 (증권사, IB), 컨설팅, 일부 기술 기업
+**Common in**: Finance (증권사, IB), consulting, some tech companies
 
-**구조:**
-1. **훅** (400-600자)
-   - 가장 관련성/설득력 있는 경험
-   - 연대기 시작 안 됨 ("저는 2015년에...")
-   - 호기심 유발 또는 통찰 보여주기
+**Structure:**
+1. **Hook** (400-600자)
+   - Most relevant/compelling experience
+   - NOT chronological start ("저는 2015년에...")
+   - Creates curiosity or shows insight
    
-2. **역량 증명** (1,500-1,800자)
-   - 2-3개 클러스터, 각 500-600자
-   - 클러스터 = 스킬 영역 + 2-3개 지원 경험
-   - 예시 클러스터:
-     - 재무 분석 (CPA + 수업 + 응용)
-     - 데이터 기반 의사결정 (연구 + 프로젝트 + 업무)
-     - 실행력 (스타트업 + 협상 + 결과)
+2. **Competency Proof** (1,500-1,800자)
+   - 2-3 clusters, each 500-600자
+   - Cluster = skill area + 2-3 supporting experiences
+   - Example clusters:
+     - Financial analysis (CPA + coursework + application)
+     - Data-driven decisions (research + project + work)
+     - Execution (startup + negotiation + results)
    
-3. **회사 적합성** (400-600자)
-   - 왜 이 회사인가 (구체적 사실)
-   - 구체적 목표 (직무별)
+3. **Company Fit** (400-600자)
+   - Why THIS company (specific facts)
+   - Concrete goals (role-specific)
 
-**Q2와의 중요한 차이:**
-- 인생 이야기 아님
-- 연대기 아님
-- 개인 성장이 아닌 직무 적합성에 집중
+**Critical difference from Q2:**
+- NOT a life story
+- NOT chronological
+- Focus on job fit, not personal growth
 
+**Example opening (good):**
+> 게장집 운영 중 꽃게 가격 변동을 선도계약으로 헷지한 경험이 있습니다. 이는 부동산 PF에서 금리·원자재 리스크를 관리하는 것과 동일한 원리입니다.
 
-## 흔한 함정들
+**Example opening (bad):**
+> 저는 2015년 서울대 에너지자원공학과에 입학했습니다. 1학년 때 물리학을 배웠고...
 
-### 함정 1: 리서치 없이 작성
-**증상**: 막연한 진술, 뻔한 스킬
-**해결책**: 작성 전 10분 웹 검색
+## Common Pitfalls
 
-### 함정 2: 경험 나열
-**잘못됨**: A를 했고, B를 했으며, C를 했습니다
-**올바름**: C 프로젝트에서 X 문제를 Y 방법으로 해결했습니다
+### Pitfall 1: Writing without research
+**Symptom**: Vague statements, generic skills
+**Fix**: Spend 10 min on web search before writing
 
-### 함정 3: 추상적 포부
-**잘못됨**: 빠르게 성장하여 회사에 기여하고 싶습니다
-**올바름**: 공정 데이터 분석으로 병목 구간을 찾아 원가 절감하겠습니다
+### Pitfall 2: 경험 나열 (listing experiences)
+**Wrong**: A를 했고, B를 했으며, C를 했습니다
+**Right**: C 프로젝트에서 X 문제를 Y 방법으로 해결했습니다
 
-### 함정 4: 회사 홍보 (회사 IR 언어)
-**잘못됨**: ~은 나노미터 단위 정밀도로 세계 최고 수준입니다
-**올바름**: ~의 생산 시스템에서 제 데이터 분석 경험을 활용하고 싶습니다
+### Pitfall 3: 추상적 포부 (vague goals)
+**Wrong**: 빠르게 성장하여 회사에 기여하고 싶습니다
+**Right**: 공정 데이터 분석으로 병목 구간을 찾아 원가 절감하겠습니다
 
-### 함정 5: 중복 (문항 간 반복)
-**해결책**: 각 경험은 하나의 주 무대, 다른 곳에서는 간단히 언급
+### Pitfall 4: 회사 홍보 (company IR language)
+**Wrong**: ~은 나노미터 단위 정밀도로 세계 최고 수준입니다
+**Right**: ~의 생산 시스템에서 제 데이터 분석 경험을 활용하고 싶습니다
 
-### 함정 6: 자유형식 = 성장과정으로 착각
-**잘못됨**: 대학 입학 → 1학년 → 2학년 → 졸업 → 지금
-**올바름**: 훅 → 역량 1 → 역량 2 → 역량 3 → 회사
+### Pitfall 5: 중복 (redundancy across questions)
+**Fix**: Each experience gets ONE main home, brief mentions elsewhere
 
-## 출력 형식
+### Pitfall 6: 자유형식 = 성장과정 (free-form = autobiography)
+**Wrong**: 대학 입학 → 1학년 → 2학년 → 졸업 → 지금
+**Right**: Hook → Competency 1 → Competency 2 → Competency 3 → Company
 
-다음과 같이 작업물 제시:
-1. 간단한 전략 (어떤 경험을 어디에, 왜)
-2. 전체 초안
-3. 글자 수
-4. 피드백 요청
+### Pitfall 7: "저는" overuse (English-style subjects)
+**Wrong**: 저는 A했습니다. 저는 B했고, 저는 C도 했습니다.
+**Right**: A를 수행했습니다. B 경험을 통해 C 역량을 키웠습니다.
 
-**하지 마세요:**
-- 길이에 대해 사과
-- 초안 중간에 메타 해설 추가
-- 사용자에게 작성 선택 설명
+### Pitfall 8: "~생각합니다" repetition
+**Wrong**: Using 7+ times in one essay (sounds uncertain)
+**Right**: Use 2-3 times strategically, vary with "~할 수 있습니다", "~배웠습니다"
 
-## 특수 케이스
+### Pitfall 9: Overconfident absolutes
+**Wrong**: 이것이 핵심입니다. 반드시 필요합니다. 저는 완벽히 갖췄습니다.
+**Right**: 이 경험이 활용될 수 있습니다. ~의 중요성을 배웠습니다.
+
+## Real Application Example
+
+**Scenario**: Engineering graduate applying to finance role (Real Estate PF)
+- Background: Energy engineering major, drone research, CPA prep, family restaurant
+
+**Initial draft problems:**
+```
+❌ 저는 CPA를 공부했습니다. 저는 재무회계를 배웠고, 저는 원가관리도 공부했습니다.
+   ("저는" used 3 times in 2 sentences)
+
+❌ 이러한 역량이 핵심입니다. 반드시 기여할 수 있습니다.
+   (Overconfident absolutes)
+
+❌ 부동산 PF에서 중요하다고 생각합니다. 활용될 수 있다고 생각합니다. 
+   기여하고 싶다고 생각합니다.
+   ("~생각합니다" used 7 times total)
+```
+
+**Revised version:**
+```
+✅ CPA 시험을 준비하며 재무회계와 원가관리회계를 공부했습니다.
+   (Subject omitted naturally)
+
+✅ 이 경험이 프로젝트 사업성 평가에 활용될 수 있습니다.
+   (Shows capability without arrogance)
+
+✅ 부동산 PF에서는 리스크 관리가 핵심이라고 생각합니다. [only 1-2 uses]
+   재무 모델링 역량을 키웠습니다. [variation]
+   프로젝트 평가에 기여하겠습니다. [direct statement]
+```
+
+**Section headings - Before/After:**
+```
+❌ Inconsistent:
+[연평도 게장집에서 이론을 실무에 적용하고 소통으로 성과를 만든 경험]
+[CPA 준비를 통한 재무·회계 기초 역량 확보]
+[데이터 기반 의사결정 경험]
+
+✅ Consistent:
+[게장집 운영: 이론을 실무에 적용하고 소통으로 성과 창출]
+[CPA 준비: 재무·회계 기초 역량 확보]
+[드론 연구: 데이터 기반 의사결정]
+[에너지시장 분석: 거시 경제 이해]
+[스타트업: 프로젝트 관리 및 실행력]
+[NH투자증권: 목표와 포부]
+```
+
+**Final metrics:**
+- "저는": 2회 (opening + one contrast) ✓
+- "~생각합니다": 2회 (strategic placement) ✓
+- Overconfident words: 0회 ✓
+- Section headings: Consistent format ✓
+- Character count: 2,987/3,000 ✓
+
+## Output Format
+
+Present work as:
+1. Brief strategy (which experiences where, why)
+2. Full drafts
+3. Character counts
+4. Request feedback
+
+**Don't:**
+- Apologize for length
+- Add meta-commentary mid-draft
+- Explain writing choices to user
+
+## Special Cases
 
 ### 비전공자 (Non-major applicants)
-- 강점으로 프레이밍: "폭넓은 시각", "다양한 경험"
-- 빈틈에 대해 정직하게
-- 전이 가능한 스킬 강조
+- Frame as strength: "폭넓은 시각", "다양한 경험"
+- Be honest about gaps
+- Emphasize transferable skills
 
-### 신입 (Entry-level, 제한된 경험)
-- 수업 활용을 많이
-- 일상 활동에서 스킬 추출
-- 학습 능력 + 구체적 관심사에 집중
+### 신입 (Entry-level, limited experience)
+- Leverage coursework heavily
+- Extract skills from daily activities
+- Focus on learning ability + specific interest
 
-### 동일 회사 내 여러 직무
-- Q1을 사용해 직무 간 차별화
-- 다른 경험을 다른 직무에 매핑
-- "이것도 저것도" 톤 피하기
+### Multiple roles at same company
+- Use Q1 to differentiate between roles
+- Map different experiences to different roles
+- Avoid "이것도 저것도" tone
 
-## 예시 및 참고자료
+## Examples & References
 
-이 스킬은 다음을 포함한 실제 지원서에서 도출되었습니다:
-- 제조업 (삼성전자 DS 생산관리)
-- 금융 IB (NH투자증권 ECM/DCM, 부동산인프라)
-- 모두 90% 이상 경험 중복, 다른 강조점
+This skill draws from real applications including:
+- Manufacturing (Samsung Electronics DS 생산관리)
+- Finance IB (NH투자증권 ECM/DCM, 부동산인프라)
+- All with 90%+ experience overlap, different emphasis
 
-**핵심 교훈**: 같은 사람, 같은 경험 → 다른 직무에 따라 다른 에세이. 리서치가 강조점을 결정합니다.
+**Key lesson**: Same person, same experiences → different essays for different jobs. Research determines emphasis.
